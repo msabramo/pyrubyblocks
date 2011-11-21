@@ -45,14 +45,6 @@ class ListObject(list):
         return [item for item in self if not block(item)]
 
 
-NumberObject(5).times(ExecBlock("""
-print "%d - %s" % (args[0], args[0] * '*')
-"""))
-
-NumberObject(1).upto(5, ExecBlock("""
-print "%d - %s" % (args[0], args[0] * '*')
-"""))
-
 ListObject([1, 2, 3, 4]).each(ExecBlock("print args[0]"))
 
 ret = ListObject([1, 2, 3, 4]).collect(EvalBlock("args[0] ** 2"))
